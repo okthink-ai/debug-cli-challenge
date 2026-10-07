@@ -1,0 +1,46 @@
+{
+  "name": "debug-cli-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.ts",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "start": "expo start --port 8087",
+    "web": "expo start --web --port 8087",
+    "ios": "expo start --ios --port 8087",
+    "server": "node --env-file-if-exists=.env server/index.mjs",
+    "type-check": "tsc --noEmit",
+    "build:web": "expo export --platform web",
+    "reset": "node scripts/reset.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "lint": "eslint src App.tsx index.ts",
+    "test:browser": "node scripts/verify-web.mjs"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@reduxjs/toolkit": "2.11.2",
+    "expo": "55.0.31",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-native": "0.83.10",
+    "react-native-safe-area-context": "5.6.2",
+    "react-native-web": "0.21.2",
+    "react-redux": "9.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.10",
+    "playwright": "1.61.1",
+    "typescript": "5.9.3",
+    "ws": "8.21.0",
+    "eslint": "^9.39.0",
+    "@eslint/js": "^9.39.0",
+    "typescript-eslint": "^8.46.0",
+    "eslint-plugin-react-hooks": "^5.2.0"
+  },
+  "description": "Build a debug CLI for a deliberately broken Expo web/iOS todo app.",
+  "license": "MIT"
+}

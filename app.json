@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Little List",
+    "slug": "debug-cli-challenge",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "debug-cli-challenge",
+    "ios": {
+      "bundleIdentifier": "ai.okthink.debugclichallenge",
+      "supportsTablet": true
+    },
+    "web": {
+      "name": "Little List",
+      "bundler": "metro"
+    }
+  }
+}
