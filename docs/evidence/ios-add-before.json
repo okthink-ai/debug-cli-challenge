@@ -1,0 +1,62 @@
+{
+  "status": "fail",
+  "claim": "This request was accepted and its intended effect persisted; native taps are a separate check",
+  "failures": [
+    "Client received HTTP 422",
+    "Server returned HTTP 422"
+  ],
+  "missing": [],
+  "requestId": "ios-1791337504064-1x90v-2",
+  "observedAt": "2026-10-07T01:45:31.938Z",
+  "frontend": {
+    "platform": "ios",
+    "instanceId": "ios-1791337504064-1x90v",
+    "runId": "ed254ef0-c418-46c9-8f4a-e489afd9be7e",
+    "request": {
+      "requestId": "ios-1791337504064-1x90v-2",
+      "at": "2026-10-07T01:45:23.225Z",
+      "method": "POST",
+      "route": "/todos",
+      "body": {
+        "title": "Rehearse the talk",
+        "priority": "urgent"
+      },
+      "submitted": {
+        "priority": "urgent",
+        "capabilityRevision": 1
+      },
+      "status": 422,
+      "response": {
+        "error": "Priority “urgent” is not supported",
+        "code": "UNSUPPORTED_PRIORITY",
+        "requestId": "ios-1791337504064-1x90v-2",
+        "runId": "ed254ef0-c418-46c9-8f4a-e489afd9be7e"
+      },
+      "error": "Priority “urgent” is not supported"
+    }
+  },
+  "backend": {
+    "request_id": "ios-1791337504064-1x90v-2",
+    "run_id": "ed254ef0-c418-46c9-8f4a-e489afd9be7e",
+    "at": "2026-10-07T01:45:23.261Z",
+    "method": "POST",
+    "route": "/todos",
+    "platform": "ios",
+    "body": {
+      "title": "Rehearse the talk",
+      "priority": "urgent"
+    },
+    "status": 422,
+    "evidence": {
+      "error": "UNSUPPORTED_PRIORITY",
+      "supported": [
+        "normal",
+        "high"
+      ],
+      "received": "urgent",
+      "rowsAffected": 0
+    }
+  },
+  "database": null,
+  "databaseRunId": "ed254ef0-c418-46c9-8f4a-e489afd9be7e"
+}

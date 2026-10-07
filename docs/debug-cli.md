@@ -76,7 +76,8 @@ npm run debug -- perf-start --target ios
 npm run debug -- perf-stop --target ios --out artifacts/ios-before.json
 ```
 
-Clear the draft before starting and don't submit during measurement. The
+Focus the native input and clear the draft before starting; wait for initial
+rendering and previous flashes to settle. Don't submit during measurement. The
 capture automatically stops after 60 seconds and caps at 40,000 events,
 reporting any dropped events. Native timing availability is reported explicitly.
 There is no `perf-type --target ios`: browser input is not a native driver.

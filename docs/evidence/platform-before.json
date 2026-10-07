@@ -1,0 +1,32 @@
+{
+  "status": "fail",
+  "claim": "Both runtimes hold the same priority contract (not a UI interaction check)",
+  "values": [
+    {
+      "platform": "web",
+      "instanceId": "web-1791337433406-j2pl7",
+      "runId": "ed254ef0-c418-46c9-8f4a-e489afd9be7e",
+      "observedAt": "2026-10-07T01:45:31.874Z",
+      "priority": "high",
+      "capabilityRevision": 2,
+      "savedPreference": {
+        "priority": "high",
+        "revision": 2
+      }
+    },
+    {
+      "platform": "ios",
+      "instanceId": "ios-1791337504064-1x90v",
+      "runId": "ed254ef0-c418-46c9-8f4a-e489afd9be7e",
+      "observedAt": "2026-10-07T01:45:31.860Z",
+      "priority": "urgent",
+      "capabilityRevision": 1,
+      "savedPreference": {
+        "priority": "urgent",
+        "revision": 1
+      }
+    }
+  ],
+  "missing": [],
+  "errors": []
+}

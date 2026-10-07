@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "claim": "This request was accepted and its intended effect persisted; native taps are a separate check",
+  "failures": [],
+  "missing": [],
+  "requestId": "ios-1791337651030-lqri3-2",
+  "observedAt": "2026-10-07T01:48:06.465Z",
+  "frontend": {
+    "platform": "ios",
+    "instanceId": "ios-1791337651030-lqri3",
+    "runId": "b666114e-5833-4749-b1aa-9c3478f17ef9",
+    "request": {
+      "requestId": "ios-1791337651030-lqri3-2",
+      "at": "2026-10-07T01:47:41.542Z",
+      "method": "POST",
+      "route": "/todos",
+      "body": {
+        "title": "Rehearse the talk",
+        "priority": "high"
+      },
+      "submitted": {
+        "priority": "high",
+        "capabilityRevision": 2
+      },
+      "status": 201,
+      "response": {
+        "todo": {
+          "id": "task-7d80a44e",
+          "title": "Rehearse the talk",
+          "completed": false,
+          "priority": "high",
+          "project": "Launch"
+        },
+        "requestId": "ios-1791337651030-lqri3-2",
+        "runId": "b666114e-5833-4749-b1aa-9c3478f17ef9"
+      }
+    },
+    "todo": {
+      "id": "task-7d80a44e",
+      "title": "Rehearse the talk",
+      "completed": false,
+      "priority": "high",
+      "project": "Launch"
+    }
+  },
+  "backend": {
+    "request_id": "ios-1791337651030-lqri3-2",
+    "run_id": "b666114e-5833-4749-b1aa-9c3478f17ef9",
+    "at": "2026-10-07T01:47:41.550Z",
+    "method": "POST",
+    "route": "/todos",
+    "platform": "ios",
+    "body": {
+      "title": "Rehearse the talk",
+      "priority": "high"
+    },
+    "status": 201,
+    "evidence": {
+      "rowsAffected": 1,
+      "after": {
+        "id": 122,
+        "public_id": "task-7d80a44e",
+        "title": "Rehearse the talk",
+        "completed": 0,
+        "priority": "high",
+        "project": "Launch"
+      }
+    }
+  },
+  "database": {
+    "id": 122,
+    "public_id": "task-7d80a44e",
+    "title": "Rehearse the talk",
+    "completed": 0,
+    "priority": "high",
+    "project": "Launch"
+  },
+  "databaseRunId": "b666114e-5833-4749-b1aa-9c3478f17ef9"
+}

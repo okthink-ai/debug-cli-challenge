@@ -66,7 +66,10 @@ async function run() {
     await new Promise((resolve, reject) => { child.once('spawn', resolve); child.once('error', reject); }); child.unref();
     return { launched: true, pid: child.pid, endpoint: 'http://127.0.0.1:9337' };
   }
-  if (command === 'reset') return backend('/__demo/reset', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Demo-Control': '1' }, body: JSON.stringify({ count: Number(option('count', 120)) }) });
+  if (command === 'reset') {
+    if (args[1] && !args[1].startsWith('--')) throw new Error('reset accepts --count only; there are no repair modes');
+    return backend('/__demo/reset', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Demo-Control': '1' }, body: JSON.stringify({ count: Number(option('count', 120)) }) });
+  }
   if (command === 'state') return observe(platform);
   if (command === 'reload') return observe(platform, '(globalThis.__TODO_DEBUG__.actions.initialize(), { scheduled: true, mechanism: "application action, not UI input" })');
   if (command === 'requests') return (await observe(platform)).state.requests;

@@ -1,0 +1,75 @@
+{
+  "sourceCommit": "1edf227",
+  "repairPatchSha256": "28d5ca992b2283a81c0a97f9cee0f39e03d9bf5b405d07393aa1843978816571",
+  "environment": {
+    "node": "v25.8.2",
+    "platform": "darwin",
+    "arch": "arm64",
+    "expo": "55.0.31",
+    "react": "19.2.0",
+    "reactNative": "0.83.10",
+    "native": "iPhone 17 Pro / iOS 26.5 Simulator / Expo Go / Hermes"
+  },
+  "captures": [
+    {
+      "platform": "web",
+      "stage": "before",
+      "text": "Rehearse",
+      "mechanism": "Playwright pressSequentially, 75 ms between characters",
+      "fixtureCount": 120,
+      "startedAt": "2026-10-07T01:50:13.405Z",
+      "rowCommits": 960,
+      "distinctRows": 120,
+      "screenCommits": 8,
+      "screenRenderMs": 420.1000006198883,
+      "flashEnabled": false,
+      "dropped": 0,
+      "timingsAvailable": true
+    },
+    {
+      "platform": "web",
+      "stage": "after",
+      "text": "Rehearse",
+      "mechanism": "Playwright pressSequentially, 75 ms between characters",
+      "fixtureCount": 120,
+      "startedAt": "2026-10-07T01:47:25.094Z",
+      "rowCommits": 0,
+      "distinctRows": 0,
+      "screenCommits": 8,
+      "screenRenderMs": 17.899999856948853,
+      "flashEnabled": false,
+      "dropped": 0,
+      "timingsAvailable": true
+    },
+    {
+      "platform": "ios",
+      "stage": "before",
+      "text": "Rehearse",
+      "mechanism": "Maestro native inputText (may coalesce text events)",
+      "fixtureCount": 120,
+      "startedAt": "2026-10-07T01:46:31.383Z",
+      "rowCommits": 360,
+      "distinctRows": 120,
+      "screenCommits": 3,
+      "screenRenderMs": 1212.4621205329895,
+      "flashEnabled": false,
+      "dropped": 0,
+      "timingsAvailable": true
+    },
+    {
+      "platform": "ios",
+      "stage": "after",
+      "text": "Rehearse",
+      "mechanism": "Maestro native inputText (may coalesce text events)",
+      "fixtureCount": 120,
+      "startedAt": "2026-10-07T01:48:18.967Z",
+      "rowCommits": 0,
+      "distinctRows": 0,
+      "screenCommits": 8,
+      "screenRenderMs": 25.137139558792114,
+      "flashEnabled": false,
+      "dropped": 0,
+      "timingsAvailable": true
+    }
+  ]
+}

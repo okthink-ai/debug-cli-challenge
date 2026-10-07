@@ -1,0 +1,100 @@
+{
+  "status": "fail",
+  "claim": "This request was accepted and its intended effect persisted; native taps are a separate check",
+  "failures": [
+    "API acknowledged completion but SQLite updated zero rows",
+    "Persisted completion disagrees with the submitted intent"
+  ],
+  "missing": [],
+  "requestId": "web-1791337811649-fg1yb-2",
+  "observedAt": "2026-10-07T01:50:12.172Z",
+  "frontend": {
+    "platform": "web",
+    "instanceId": "web-1791337811649-fg1yb",
+    "runId": "519e81d2-0037-4280-8a29-be669981b499",
+    "request": {
+      "requestId": "web-1791337811649-fg1yb-2",
+      "at": "2026-10-07T01:50:11.995Z",
+      "method": "PATCH",
+      "route": "/todos/task-001",
+      "body": {
+        "completed": true
+      },
+      "submitted": {
+        "priority": "high",
+        "capabilityRevision": 2
+      },
+      "status": 200,
+      "response": {
+        "todo": {
+          "id": "task-001",
+          "title": "Send the launch checklist",
+          "completed": true,
+          "priority": "high",
+          "project": "Launch"
+        },
+        "requestId": "web-1791337811649-fg1yb-2",
+        "runId": "519e81d2-0037-4280-8a29-be669981b499"
+      }
+    },
+    "todo": {
+      "id": "task-001",
+      "title": "Send the launch checklist",
+      "completed": true,
+      "priority": "high",
+      "project": "Launch"
+    }
+  },
+  "backend": {
+    "request_id": "web-1791337811649-fg1yb-2",
+    "run_id": "519e81d2-0037-4280-8a29-be669981b499",
+    "at": "2026-10-07T01:50:11.997Z",
+    "method": "PATCH",
+    "route": "/todos/task-001",
+    "platform": "web",
+    "body": {
+      "completed": true
+    },
+    "status": 200,
+    "evidence": {
+      "sql": "UPDATE todos SET completed=? WHERE id=?",
+      "params": [
+        1,
+        "task-001"
+      ],
+      "rowsAffected": 0,
+      "before": {
+        "id": 1,
+        "public_id": "task-001",
+        "title": "Send the launch checklist",
+        "completed": 0,
+        "priority": "high",
+        "project": "Launch"
+      },
+      "after": {
+        "id": 1,
+        "public_id": "task-001",
+        "title": "Send the launch checklist",
+        "completed": 0,
+        "priority": "high",
+        "project": "Launch"
+      },
+      "response": {
+        "id": "task-001",
+        "title": "Send the launch checklist",
+        "completed": true,
+        "priority": "high",
+        "project": "Launch"
+      }
+    }
+  },
+  "database": {
+    "id": 1,
+    "public_id": "task-001",
+    "title": "Send the launch checklist",
+    "completed": 0,
+    "priority": "high",
+    "project": "Launch"
+  },
+  "databaseRunId": "519e81d2-0037-4280-8a29-be669981b499"
+}
