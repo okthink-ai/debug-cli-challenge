@@ -18,7 +18,11 @@
     "reset": "node scripts/reset.mjs",
     "test": "node --test tests/*.test.mjs",
     "lint": "eslint src App.tsx index.ts",
-    "test:browser": "node scripts/verify-web.mjs"
+    "test:browser": "playwright test --grep-invert @acceptance",
+    "accept": "playwright test --grep @acceptance",
+    "accept:ios": "maestro test maestro/submit.yaml",
+    "format": "prettier --write \"**/*.{ts,tsx,mjs,js,json,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,mjs,js,json,yml,yaml}\""
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
@@ -32,14 +36,16 @@
     "react-redux": "9.2.0"
   },
   "devDependencies": {
-    "@types/react": "19.2.10",
-    "playwright": "1.61.1",
-    "typescript": "5.9.3",
-    "ws": "8.21.0",
-    "eslint": "^9.39.0",
     "@eslint/js": "^9.39.0",
+    "@playwright/test": "1.61.1",
+    "@types/react": "19.2.10",
+    "eslint": "^9.39.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "playwright": "1.61.1",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
     "typescript-eslint": "^8.46.0",
-    "eslint-plugin-react-hooks": "^5.2.0"
+    "ws": "8.21.0"
   },
   "description": "Build a debug CLI for a deliberately broken Expo web/iOS todo app.",
   "license": "MIT"

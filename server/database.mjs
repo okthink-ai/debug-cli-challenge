@@ -20,18 +20,49 @@ export function config(db) {
 }
 export function resetDatabase(db, count = 120) {
   if (!Number.isInteger(count) || count < 8 || count > 300) throw new Error('count must be 8–300');
-  const next = { app: 'debug-cli-challenge', revision: 'todo-demo-v1', runId: randomUUID(), mode: 'challenge', count };
-  const titles = ['Send the launch checklist', 'Review the iOS build', 'Book the rehearsal room', 'Record the product walkthrough', 'Check the release notes', 'Share the design review', 'Pack the demo cable', 'Write the follow-up'];
+  const next = {
+    app: 'debug-cli-challenge',
+    revision: 'todo-demo-v1',
+    runId: randomUUID(),
+    mode: 'challenge',
+    count,
+  };
+  const titles = [
+    'Send the launch checklist',
+    'Review the iOS build',
+    'Book the rehearsal room',
+    'Record the product walkthrough',
+    'Check the release notes',
+    'Share the design review',
+    'Pack the demo cable',
+    'Write the follow-up',
+  ];
   db.exec('BEGIN IMMEDIATE');
   try {
     db.exec('DELETE FROM todos; DELETE FROM requests; DELETE FROM config;');
     db.prepare('INSERT INTO config VALUES (1, ?)').run(JSON.stringify(next));
     const insert = db.prepare('INSERT INTO todos VALUES (?, ?, ?, 0, ?, ?)');
-    for (let i = 1; i <= count; i++) insert.run(i, `task-${String(i).padStart(3, '0')}`, `${titles[(i - 1) % titles.length]}${i > 8 ? ` · ${i}` : ''}`, i % 4 === 1 ? 'high' : 'normal', ['Launch', 'Product', 'Personal'][(i - 1) % 3]);
+    for (let i = 1; i <= count; i++)
+      insert.run(
+        i,
+        `task-${String(i).padStart(3, '0')}`,
+        `${titles[(i - 1) % titles.length]}${i > 8 ? ` · ${i}` : ''}`,
+        i % 4 === 1 ? 'high' : 'normal',
+        ['Launch', 'Product', 'Personal'][(i - 1) % 3],
+      );
     db.exec('COMMIT');
-  } catch (error) { db.exec('ROLLBACK'); throw error; }
+  } catch (error) {
+    db.exec('ROLLBACK');
+    throw error;
+  }
   return next;
 }
 export function publicTodo(row) {
-  return { id: row.public_id, title: row.title, completed: Boolean(row.completed), priority: row.priority, project: row.project };
+  return {
+    id: row.public_id,
+    title: row.title,
+    completed: Boolean(row.completed),
+    priority: row.priority,
+    project: row.project,
+  };
 }
