@@ -38,11 +38,14 @@ function TodoRow({ todo, onToggle }: { todo: Todo; onToggle: (id: string) => voi
   const flash = useRef(new Animated.Value(0)).current;
   const activityScore = activitySummary(todo.id);
   useEffect(() => {
-    flash.stopAnimation();
     if (!highlightRenders) {
+      flash.stopAnimation();
       flash.setValue(0);
-      return;
     }
+  }, [highlightRenders, flash]);
+  useEffect(() => {
+    if (!highlightRenders) return;
+    flash.stopAnimation();
     flash.setValue(1);
     Animated.timing(flash, { toValue: 0, duration: 650, useNativeDriver: false }).start();
   });
