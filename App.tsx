@@ -1,12 +1,14 @@
-import { memo, useEffect, useRef } from 'react';
+import { memo, Profiler, useEffect, useRef } from 'react';
 import { Animated, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Provider, shallowEqual } from 'react-redux';
 import { actions, addTodo, initialize, refresh, store, toggleTodo, useAppDispatch, useAppSelector } from './src/store';
-import { renderSettings } from './src/performance';
+import { onRender, renderSettings } from './src/performance';
+import { installDebugBridge } from './src/debug';
 import type { Todo } from './src/types';
 
 
+installDebugBridge();
 const activity = Array.from({ length: 48000 }, (_, i) => ({ todo: `task-${String((i % 120) + 1).padStart(3, '0')}`, time: (i * 7919) % 100000, weight: (i % 7) + 1 }));
 function activitySummary(id: string) {
   const recent = activity.filter(item => item.todo === id).sort((a, b) => b.time - a.time).slice(0, 24);
@@ -20,7 +22,7 @@ function TodoRow({ todo, onToggle }: { todo: Todo; onToggle: (id: string) => voi
     flash.stopAnimation(); flash.setValue(1);
     Animated.timing(flash, { toValue: 0, duration: 650, useNativeDriver: false }).start();
   });
-  return <>
+  return <Profiler id={`todo:${todo.id}`} onRender={onRender}>
     <Animated.View testID={`row-${todo.id}`} style={[styles.row, { borderColor: flash.interpolate({ inputRange: [0, 1], outputRange: ['#e9e8e4', '#f07845'] }) }]}>
       <Pressable testID={`toggle-${todo.id}`} accessibilityRole="checkbox" accessibilityState={{ checked: todo.completed }} aria-checked={todo.completed} accessibilityLabel={`Complete ${todo.title}`} onPress={() => onToggle(todo.id)} style={[styles.checkbox, todo.completed && styles.checked]}>
         <Text style={styles.checkmark}>{todo.completed ? '✓' : ''}</Text>
@@ -31,7 +33,7 @@ function TodoRow({ todo, onToggle }: { todo: Todo; onToggle: (id: string) => voi
       </View>
       <Text style={[styles.priority, todo.priority === 'high' && styles.high]}>{todo.priority === 'high' ? 'High' : 'Normal'}</Text>
     </Animated.View>
-  </>;
+  </Profiler>;
 }
 const MemoTodoRow = memo(TodoRow);
 function TodoList({ todos }: { todos: Todo[] }) {
@@ -73,7 +75,7 @@ function TodoScreen() {
   </SafeAreaView>;
 }
 export default function App() {
-  return <SafeAreaProvider><Provider store={store}><TodoScreen /></Provider></SafeAreaProvider>;
+  return <SafeAreaProvider><Provider store={store}><Profiler id="TodoScreen" onRender={onRender}><TodoScreen /></Profiler></Provider></SafeAreaProvider>;
 }
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#fafaf7' },

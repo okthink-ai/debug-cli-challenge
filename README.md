@@ -35,6 +35,46 @@ challenge is here; the presentation framework is not a dependency.
 a fixed mode or a hidden switch that repairs the app. Make your fixes on your
 own branch. The main branch's history does not contain the reference CLI.
 
+## You are on `solution`: use the reference CLI
+
+**All three application bugs are still present.** This branch adds observers;
+it does not contain completed app repairs. Start a branch for your attempt:
+
+```sh
+git switch -c my-repairs
+npm ci
+npm run dev
+# In another terminal:
+npm run debug -- browser
+npm run debug -- doctor
+npm run debug -- help
+```
+
+Open the actual iOS app using the setup below, then run:
+
+```sh
+npm run debug -- doctor --target ios
+npm run debug -- compare
+```
+
+`browser` launches a separate Chrome profile on port 9337 (macOS default;
+set `CHROME_PATH` to your Chrome executable on another OS). If Chrome is already
+running with a dedicated debugging profile, set `DEMO_CDP` to its HTTP endpoint.
+Close React Native DevTools if it competes for the Hermes connection.
+
+Try this prompt:
+
+> Use this repository's debug CLI to investigate the three reported problems.
+> First establish which web/iOS runtimes and fixture are attached. Reproduce
+> each issue with real input, save the baseline evidence, and explain the
+> cause. Then make code repairs on my working branch and repeat the same checks.
+> Inspect SQLite after writes, cold-start iOS, and compare React captures around
+> identical input. Report any missing evidence rather than assuming success.
+
+Read [the CLI guide](docs/debug-cli.md) for commands, evidence contracts, native
+profiling, and troubleshooting. [The validation report](docs/validation.md)
+records the actual maintainer rehearsal, including its limits and spoilers.
+
 ## The three problems
 
 ### 1. Across the stack: “saved” does not survive refresh
