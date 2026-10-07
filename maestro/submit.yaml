@@ -1,0 +1,12 @@
+appId: host.exp.Exponent
+---
+# Start the SDK 55 app with an empty draft before running this flow.
+- assertVisible: Your tasks.
+- tapOn:
+    id: draft
+- inputText: Native acceptance task
+- tapOn:
+    id: add
+- assertVisible: Added to your list
+- hideKeyboard
+- assertVisible: Native acceptance task

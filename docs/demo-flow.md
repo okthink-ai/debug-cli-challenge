@@ -43,13 +43,17 @@ rehearsed walkthrough, longer for live investigation and coding.
   typing method, flash setting, and build type for performance comparisons.
 - Rehearse each action. Save raw JSON beside any screenshot or video clip.
 
-## Opening: reproduce the reports (about 2 minutes)
+## Opening: one symptom (about 2 minutes)
 
-Show Little List on web and iOS. Add a task on each platform. Complete the
-first seeded task on web and refresh. Type a draft and watch unchanged rows
-flash. Ask the agent to explain these outcomes using observations before edits.
+Open the web app. Complete the first seeded task and press Refresh. Show the
+contradiction, then give the agent the short README prompt. Reserve native and
+performance for later beats so the audience can follow one investigation first.
 
-The visual symptoms establish a problem; they do not establish its cause.
+On `main`, show the first observation being built: a small bridge diff, a CDP
+query against the live task, and the query becoming a reusable CLI command.
+State that raw request/SQL records are supplied by the exercise. On `solution`,
+label the CLI as a prepared example and show `doctor`, `state`, and `trace`.
+Don't imply prepared tooling was invented live.
 
 ## Beat 1: follow “saved” through the stack (about 4 minutes)
 

@@ -1,6 +1,6 @@
 # Debug CLI Challenge
 
-Read README.md and docs/demo-flow.md first. This is a standalone Expo project.
+Read README.md first. Read docs/exercise.md when starting an investigation. This is a standalone Expo project.
 
 The default branch intentionally contains three bugs. When asked to build tools,
 preserve those symptoms while adding observation. When asked to solve the

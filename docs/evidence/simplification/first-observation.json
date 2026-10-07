@@ -1,0 +1,40 @@
+{
+  "source": "main d7586ff + temporary observation bridge",
+  "driver": "real Playwright checkbox and refresh",
+  "before": {
+    "platform": "web",
+    "runId": "c2a86d8d-984e-4759-b001-28ce3623b001",
+    "observedAt": "2026-10-07T03:45:43.154Z",
+    "task": {
+      "id": "task-001",
+      "title": "Send the launch checklist",
+      "completed": false,
+      "priority": "high",
+      "project": "Launch"
+    }
+  },
+  "acknowledged": {
+    "platform": "web",
+    "runId": "c2a86d8d-984e-4759-b001-28ce3623b001",
+    "observedAt": "2026-10-07T03:45:43.508Z",
+    "task": {
+      "id": "task-001",
+      "title": "Send the launch checklist",
+      "completed": true,
+      "priority": "high",
+      "project": "Launch"
+    }
+  },
+  "refreshed": {
+    "platform": "web",
+    "runId": "c2a86d8d-984e-4759-b001-28ce3623b001",
+    "observedAt": "2026-10-07T03:45:43.689Z",
+    "task": {
+      "id": "task-001",
+      "title": "Send the launch checklist",
+      "completed": false,
+      "priority": "high",
+      "project": "Launch"
+    }
+  }
+}

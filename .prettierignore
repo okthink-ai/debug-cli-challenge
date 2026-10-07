@@ -1,12 +1,9 @@
 node_modules/
+.data/
 .expo/
 dist/
-.data/
 artifacts/
-.env
-.env.*
-!.env.example
-*.log
-.DS_Store
+package-lock.json
+docs/evidence/
 playwright-report/
 test-results/
