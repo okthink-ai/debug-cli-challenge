@@ -35,6 +35,21 @@ challenge is here; the presentation framework is not a dependency.
 a fixed mode or a hidden switch that repairs the app. Make your fixes on your
 own branch. The main branch's history does not contain the reference CLI.
 
+To see how the example debug CLI works, stop the development server and commit
+any work before switching branches:
+
+```sh
+git switch solution
+npm ci
+npm run dev
+```
+
+In another terminal, run `npm run debug -- browser`, then
+`npm run debug -- doctor`. The `solution` README walks through the commands.
+Both branches keep the app bugs so you can use the CLI to investigate them.
+To return to the starting app, stop the server, run `git switch main`, and
+restart with `npm run dev`. Reload both clients after switching.
+
 ## The three problems
 
 ### 1. Across the stack: “saved” does not survive refresh
